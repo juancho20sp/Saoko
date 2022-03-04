@@ -1,0 +1,23 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+saoko-front/node_modules
+saoko-front/.pnp
+saoko-front/.pnp.js
+
+# testing
+saoko-front//coverage
+
+# production
+saoko-front//build
+
+# misc
+saoko-front/.DS_Store
+saoko-front/.env.local
+saoko-front/.env.development.local
+saoko-front/.env.test.local
+saoko-front/.env.production.local
+
+saoko-front/npm-debug.log*
+saoko-front/yarn-debug.log*
+saoko-front/yarn-error.log*
