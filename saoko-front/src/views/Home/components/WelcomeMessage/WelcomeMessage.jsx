@@ -1,7 +1,18 @@
 import React from 'react';
+
+// Router
+import { routes } from '../../../../utils/routes/routes';
+import { useNavigate } from 'react-router-dom';
+
 import styles from './WelcomeMessage.module.scss';
 
+const handleClick = (navigate) => {
+  navigate(routes.chats.path);
+};
+
 const WelcomeMessage = () => {
+  const navigate = useNavigate();
+
   return (
     <div className={styles['welcomeMessage-main']}>
       <h4 className={styles['welcomeMessage-title']}>¡Bienvenido a SAOKO!</h4>
@@ -11,7 +22,10 @@ const WelcomeMessage = () => {
         equipo
       </p>
 
-      <button className={styles['welcomeMessage-button']}>
+      <button
+        className={styles['welcomeMessage-button']}
+        onClick={() => handleClick(navigate)}
+      >
         Empieza a chatear
       </button>
     </div>

@@ -50,5 +50,9 @@
         @include lg {
             font-size: $regular;
         }
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 }
