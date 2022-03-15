@@ -1,9 +1,13 @@
 import styles from './App.module.scss';
 
+import {
+  Login
+} from './views';
+
 function App() {
   return (
     <div className={styles.App}>
-      <h1>HOLA CRAYOLA</h1>
+      <Login />
     </div>
   );
 }
