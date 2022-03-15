@@ -20,4 +20,9 @@
     @include xl {
         grid-template-columns: 8% 1fr;
     }
+
+    .home-container {
+        display: grid;
+        grid-template-rows: auto 1fr;
+    }
 }

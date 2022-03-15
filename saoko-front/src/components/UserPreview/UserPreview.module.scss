@@ -3,11 +3,11 @@
     right: 0;
     
     @include xs {
-        width: 30%;
+        width: 35%;
     }
 
     @include md {
-        width: 20%;
+        width: 25%;
     }
 
     display: flex;
