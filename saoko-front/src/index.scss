@@ -7,11 +7,28 @@
 
   border: none;
   outline: none;
+
+  &::-webkit-scrollbar {
+    border-radius: 5rem;
+    width: 0.4rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px $pink-secondary;
+    outline: 1px solid $pink-primary;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $pink-tertiary;
+    outline: 1px solid $pink-primary;
+  }
 }
 
 body {
   background-color: $dark-gray;
 
+  overflow: hidden;
+  
   font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

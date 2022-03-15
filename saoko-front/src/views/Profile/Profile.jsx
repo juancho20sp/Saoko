@@ -80,10 +80,10 @@ const Profile = () => {
               </div>
 
               <div className={styles['profile-formInput']}>
-                <label htmlFor='profileConfirmPassword'>Nueva contraseña</label>
+                <label htmlFor='profileNewPassword'>Nueva contraseña</label>
                 <input
                   type='password'
-                  id='profileConfirmPassword'
+                  id='profileNewPassword'
                   placeholder='password'
                   className={styles['profile-input']}
                 />
@@ -92,10 +92,12 @@ const Profile = () => {
 
             <div className={styles['profile-formRow']}>
               <div className={styles['profile-formInput']}>
-                <label htmlFor='profilePassword'>Confirmar contraseña</label>
+                <label htmlFor='profileConfirmPassword'>
+                  Confirmar contraseña
+                </label>
                 <input
                   type='password'
-                  id='profilePassword'
+                  id='profileConfirmPassword'
                   placeholder='password'
                   className={styles['profile-input']}
                 />

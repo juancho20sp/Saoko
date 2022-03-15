@@ -1,8 +1,19 @@
+a {
+    text-decoration: none;
+    color: $black;
+
+    &.active {
+        text-decoration: underline;
+    }
+}
+
 .navbarIcon-main {
     text-align: center;
 
     margin-bottom: $small;
     padding: $small 0;
+
+    color: $dark-gray;
 
     .navbarIcon-text {
         text-transform: uppercase;
