@@ -13,6 +13,21 @@ const routes = {
         id: 2,
         path: '/',
         name: 'home'
+    },
+    chats: {
+        id: 3,
+        path: '/chats',
+        name: 'chats'
+    },
+    boards: {
+        id: 4,
+        path: '/boards',
+        name: 'boards'
+    },
+    profile: {
+        id: 5,
+        path: '/profile',
+        name: 'profile'
     }
 }
 

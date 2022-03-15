@@ -2,13 +2,13 @@ import styles from './App.module.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // Components
-import { ProtectedRoute } from './components';
+import { ProtectedRoute, Layout } from './components';
 
 // Routes
 import { routes } from './utils/routes/routes';
 
 // Views
-import { Login, Home, CreateAccount } from './views';
+import { Login, Home, CreateAccount, Chats, Boards, Profile } from './views';
 
 function App() {
   return (
@@ -18,7 +18,10 @@ function App() {
           <Route exact path={routes.login.path} element={<Login />} />
           <Route exact path={routes.signIn.path} element={<CreateAccount />} />
           <Route element={<ProtectedRoute />}>
+            <Route exact path={routes.profile.path} element={<Profile />} />
             <Route exact path={routes.home.path} element={<Home />} />
+            <Route exact path={routes.chats.path} element={<Chats />} />
+            <Route exact path={routes.boards.path} element={<Boards />} />
           </Route>
 
           <Route path='*' element={<p>There's nothing here: 404!</p>} />
