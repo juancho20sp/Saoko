@@ -5,6 +5,11 @@ import { Layout } from '../../components';
 
 import styles from './Profile.module.scss';
 
+const handleClick = (event) => {
+  event.preventDefault();
+  console.log('changing password');
+};
+
 const Profile = () => {
   return (
     <Layout>
@@ -99,7 +104,7 @@ const Profile = () => {
               <div className={styles['profile-button_container']}>
                 <button
                   className={styles['profile-button']}
-                  //   onClick={(e) => handleLogInClick(e, navigate)}
+                  onClick={(e) => handleClick(e)}
                 >
                   Cambiar contraseña
                 </button>
