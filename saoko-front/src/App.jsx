@@ -1,13 +1,11 @@
 import styles from './App.module.scss';
 
-import {
-  Login
-} from './views';
+import { Login, Home } from './views';
 
 function App() {
   return (
     <div className={styles.App}>
-      <Login />
+      <Home />
     </div>
   );
 }
