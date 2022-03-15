@@ -28,7 +28,8 @@ const Login = () => {
             />
           </div>
 
-          <div className={styles['login-formRow']}>
+          <div className={styles['login-formRow_actions']}>
+            <button className={styles['login-button']}>Sign in</button>
             <button className={styles['login-button']}>Log in</button>
           </div>
         </form>

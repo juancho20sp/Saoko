@@ -83,11 +83,16 @@
                         letter-spacing: $letter-spacing;
                     }
                 }
+            }
+
+            .login-formRow_actions {
+                display: flex;
 
                 .login-button {
                     text-transform: uppercase;
                     letter-spacing: $letter-spacing;
                     font-size: $small;
+                    color: $pink-tertiary;
 
                     background-color: $dark-gray;
                     border-radius: $border-radius / 2;
