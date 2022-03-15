@@ -5,7 +5,7 @@ import { Navigate, Outlet } from 'react-router-dom';
 import { routes } from '../../utils/routes/routes';
 
 const ProtectedRoute = ({ children }) => {
-  const isLoggedIn = false;
+  const isLoggedIn = true;
 
   // $
   console.log(`Is logged in: ${isLoggedIn}`);

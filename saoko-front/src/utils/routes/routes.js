@@ -6,7 +6,7 @@ const routes = {
     },
     signIn: {
         id: 1,
-        path: '/register',
+        path: '/createAccount',
         name: 'signIn'
     },
     home: {

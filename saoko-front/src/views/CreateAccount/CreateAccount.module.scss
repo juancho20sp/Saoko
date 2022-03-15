@@ -1,34 +1,24 @@
-.login-main {
-    text-transform: uppercase;
-
+.createAccount-main {
     height: 100vh;
     width: 100vw;
 
-    display: grid;
-    place-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    .login-container {
+    .createAccount-container {
+
         @include xs {
             width: 90%;
-            height: 60%; 
+            height: 80%;
         }
-
+    
         @include md {
-            width: 70%;
-            height: 40%; 
+            width: 60%;
+            height: 70%;
         }
 
-        @include lg {
-            width: 50%;
-            height: 40%; 
-        }
-
-        @include xl {
-            width: 40%;
-            height: 40%; 
-        }
-
-        .login-title {
+        .createAccount-title {
             color: $pink-tertiary;
 
             text-align: center;
@@ -36,22 +26,27 @@
             font-weight: 500;
             font-size: $huge;
 
-            margin-bottom: 15px;
+            margin-bottom: $medium
         }
-
-        .login-form {
-            background-color: $pink-primary;
+    
+        .createAccount-form {
+            border: 2px solid $pink-primary;
             border-radius: $border-radius;
 
-            height: 60%;
+            .createAccount-formRow {
+                margin: $small 0;
 
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
+                display: flex;
+                justify-content: space-evenly;
+            }
+        
+            .createAccount-formInput {
+                border-radius: 2px solid red;
 
-            .login-formRow {
-                padding: 0 42px;
-    
+                width: 100%;
+
+                margin: $small;
+
                 display: grid;
                 grid-template-rows: auto 1fr;
 
@@ -64,44 +59,57 @@
                         font-size: 1rem; 
                     }
             
-                    
+                    color: $pink-secondary;
+
                     font-weight: bold;
                     letter-spacing: 2.5px;
+                    text-transform: uppercase;
 
                     margin-bottom: 5px;
                     padding-left: 10px;
                 }
 
-                .login-input {
+                .createAccount-input {
+                    background-color: transparent;
+                    border: 2px solid $pink-tertiary;
                     border-radius: $border-radius / 2.5;
                     letter-spacing: $letter-spacing;
                     height: 2rem;
 
                     padding: 0 10px;
 
+                    color: white;
+
                     &::placeholder {
+                        color: $pink-tertiary;
                         font-size: 0.8rem;
                         letter-spacing: $letter-spacing;
+                        text-transform: uppercase;
+
+                        opacity: 0.5;
                     }
                 }
             }
+                
+            .createAccount-formRow_actions {
+                margin: $small 0;
 
-            .login-formRow_actions {
                 display: flex;
+                justify-content: space-evenly;
 
-                .login-button {
+                .createAccount-button {
+                    width: 100%;
+                    margin: $small;
+
+                    background-color: $pink-primary;
                     text-transform: uppercase;
                     letter-spacing: $letter-spacing;
                     font-size: $small;
-                    color: $pink-tertiary;
+                    color: $dark-gray;
 
-                    background-color: $dark-gray;
                     border-radius: $border-radius / 2;
 
-                    margin: 0 auto;
-                    
                     height: $medium * 1.2;
-                    width: 35%;
 
                     &:hover {
                         cursor: pointer;
@@ -109,32 +117,6 @@
                 }
             }
         }
-       
-        .login-links{
-            text-align: center;
-
-            margin: 10px 0;
-
-            .login-link {
-                text-decoration: underline;
-                letter-spacing: $letter-spacing;
-
-                @include xs {
-                    font-size: $small;
-                }
-
-                @include md {
-                    font-size: 1rem;
-                }
-
-                color: $pink-tertiary;
-
-                &:hover {
-                    cursor: pointer;
-                }
-            }
-        }
-        
-    }
+    }     
 }
-
+  

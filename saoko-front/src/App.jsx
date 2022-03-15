@@ -8,7 +8,7 @@ import { ProtectedRoute } from './components';
 import { routes } from './utils/routes/routes';
 
 // Views
-import { Login, Home } from './views';
+import { Login, Home, CreateAccount } from './views';
 
 function App() {
   return (
@@ -16,6 +16,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route exact path={routes.login.path} element={<Login />} />
+          <Route exact path={routes.signIn.path} element={<CreateAccount />} />
           <Route element={<ProtectedRoute />}>
             <Route exact path={routes.home.path} element={<Home />} />
           </Route>

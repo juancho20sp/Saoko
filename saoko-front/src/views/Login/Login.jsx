@@ -1,7 +1,30 @@
 import React from 'react';
 import styles from './Login.module.scss';
 
+// $
+import { useNavigate } from 'react-router-dom';
+import { routes } from '../../utils/routes/routes';
+
+const handleSignInClick = (event, navigate) => {
+  event.preventDefault();
+  // $
+  console.log('sign in clicked');
+  navigate(routes.signIn.path);
+};
+
+const handleLogInClick = (event, navigate) => {
+  event.preventDefault();
+
+  // $
+  console.log('log in clicked');
+  // TODO -> BORRAR
+  navigate(routes.home.path);
+};
+
 const Login = () => {
+  // $
+  const navigate = useNavigate();
+
   return (
     <main className={styles['login-main']}>
       <div className={styles['login-container']}>
@@ -21,7 +44,7 @@ const Login = () => {
           <div className={styles['login-formRow']}>
             <label htmlFor='loginPasswordInput'>Password</label>
             <input
-              type='text'
+              type='password'
               id='loginPasswordInput'
               placeholder='PASSWORD'
               className={styles['login-input']}
@@ -29,8 +52,18 @@ const Login = () => {
           </div>
 
           <div className={styles['login-formRow_actions']}>
-            <button className={styles['login-button']}>Sign in</button>
-            <button className={styles['login-button']}>Log in</button>
+            <button
+              className={styles['login-button']}
+              onClick={(e) => handleSignInClick(e, navigate)}
+            >
+              Sign in
+            </button>
+            <button
+              className={styles['login-button']}
+              onClick={(e) => handleLogInClick(e, navigate)}
+            >
+              Log in
+            </button>
           </div>
         </form>
 
