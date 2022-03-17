@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Router
-import { routes } from '../../../../utils/routes/routes';
+import { routes } from '../../../../utils';
 import { useNavigate } from 'react-router-dom';
 
 import styles from './WelcomeMessage.module.scss';

@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Navbar.module.scss';
 
 // Routes
-import { routes } from '../../utils/routes/routes';
+import { routes } from '../../utils/';
 
 // Components
 import { BsChatDots } from 'react-icons/bs';

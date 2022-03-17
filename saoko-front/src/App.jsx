@@ -1,21 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, createContext } from 'react';
 import styles from './App.module.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // Constants
-import { modalOptions } from './utils/modal/modal';
+import { routes, modalOptions } from './utils/';
 
 // Components
-import { ProtectedRoute, Modal } from './components';
-
-// Routes
-import { routes } from './utils/routes/routes';
+import { ProtectedRoute, Modal, ProvidedElement } from './components';
 
 // Views
 import { Login, Home, CreateAccount, Chats, Boards, Profile } from './views';
 
 // Context
-export const ModalContext = React.createContext();
+import { ModalContext } from './utils';
 
 function App() {
   // Modal
@@ -25,35 +22,49 @@ function App() {
 
   return (
     <div className={styles.App}>
-      <ModalContext.Provider value={{ setIsShowing }}>
-        <BrowserRouter>
-          <Routes>
-            <Route exact path={routes.login.path} element={<Login />} />
+      <BrowserRouter>
+        <Routes>
+          <Route exact path={routes.login.path} element={<Login />} />
+          <Route exact path={routes.signIn.path} element={<CreateAccount />} />
+          <Route element={<ProtectedRoute />}>
+            <Route exact path={routes.home.path} element={<Home />} />
+            <Route exact path={routes.profile.path} element={<Profile />} />
+
             <Route
               exact
-              path={routes.signIn.path}
-              element={<CreateAccount />}
+              path={routes.chats.path}
+              element={
+                <ProvidedElement
+                  Context={ModalContext}
+                  contextValue={{ setIsShowing, setModalType, modalOptions }}
+                  component={<Chats />}
+                ></ProvidedElement>
+              }
             />
-            <Route element={<ProtectedRoute />}>
-              <Route exact path={routes.home.path} element={<Home />} />
-              <Route exact path={routes.profile.path} element={<Profile />} />
+            <Route
+              exact
+              path={routes.boards.path}
+              element={
+                <ProvidedElement
+                  Context={ModalContext}
+                  contextValue={{ setIsShowing, setModalType, modalOptions }}
+                  component={<Boards />}
+                ></ProvidedElement>
+              }
+            />
+          </Route>
 
-              <Route exact path={routes.chats.path} element={<Chats />} />
-              <Route exact path={routes.boards.path} element={<Boards />} />
-            </Route>
+          <Route path='*' element={<p>There's nothing here: 404!</p>} />
+        </Routes>
+      </BrowserRouter>
 
-            <Route path='*' element={<p>There's nothing here: 404!</p>} />
-          </Routes>
-        </BrowserRouter>
-
-        <Modal
-          isShowing={isShowing}
-          type={modalType}
-          code={code}
-          setModalType={setModalType}
-          setIsShowing={setIsShowing}
-        />
-      </ModalContext.Provider>
+      <Modal
+        isShowing={isShowing}
+        type={modalType}
+        code={code}
+        setModalType={setModalType}
+        setIsShowing={setIsShowing}
+      />
     </div>
   );
 }

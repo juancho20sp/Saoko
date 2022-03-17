@@ -3,7 +3,7 @@ import styles from './Login.module.scss';
 
 // $
 import { useNavigate } from 'react-router-dom';
-import { routes } from '../../utils/routes/routes';
+import { routes } from '../../utils';
 
 const handleSignInClick = (event, navigate) => {
   event.preventDefault();
