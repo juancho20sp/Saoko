@@ -6,19 +6,13 @@ import styles from './AddRoom.module.scss';
 import { IconContext } from 'react-icons';
 import { GrAddCircle } from 'react-icons/gr';
 
-const handleClick = (event) => {
-  event.preventDefault();
-
-  console.log('Adding room...');
-};
-
-const AddRoom = () => {
+const AddRoom = ({ handleClick }) => {
   return (
-    <div className={styles['addRoom-main']} onClick={handleClick}>
+    <button className={styles['addRoom-main']} onClick={() => handleClick()}>
       <IconContext.Provider value={{ size: '4rem' }}>
         <GrAddCircle />
       </IconContext.Provider>
-    </div>
+    </button>
   );
 };
 

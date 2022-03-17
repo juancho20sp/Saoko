@@ -98,6 +98,10 @@ const cards = [
   },
 ];
 
+const addRoomClick = () => {
+  console.log('Adding room...');
+};
+
 const Chats = () => {
   return (
     <Layout>
@@ -105,7 +109,7 @@ const Chats = () => {
         {cards.map((card) => (
           <RoomCard key={card.id} {...card} />
         ))}
-        <AddRoom />
+        <AddRoom handleClick={addRoomClick} />
       </main>
     </Layout>
   );

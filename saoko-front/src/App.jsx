@@ -1,8 +1,12 @@
+import React, { useState } from 'react';
 import styles from './App.module.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+// Constants
+import { modalOptions } from './utils/modal/modal';
+
 // Components
-import { ProtectedRoute, Layout } from './components';
+import { ProtectedRoute, Modal } from './components';
 
 // Routes
 import { routes } from './utils/routes/routes';
@@ -11,6 +15,11 @@ import { routes } from './utils/routes/routes';
 import { Login, Home, CreateAccount, Chats, Boards, Profile } from './views';
 
 function App() {
+  // Modal
+  const [isShowing, setIsShowing] = useState(true);
+  const [modalType, setModalType] = useState(modalOptions.createChat);
+  const [code, setCode] = useState('CODE TEST ON APP.JSX');
+
   return (
     <div className={styles.App}>
       <BrowserRouter>
@@ -27,6 +36,14 @@ function App() {
           <Route path='*' element={<p>There's nothing here: 404!</p>} />
         </Routes>
       </BrowserRouter>
+
+      <Modal
+        isShowing={isShowing}
+        type={modalType}
+        code={code}
+        setModalType={setModalType}
+        setIsShowing={setIsShowing}
+      />
     </div>
   );
 }
