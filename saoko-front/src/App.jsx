@@ -19,37 +19,41 @@ export const ModalContext = React.createContext();
 
 function App() {
   // Modal
-  const [isShowing, setIsShowing] = useState(true);
+  const [isShowing, setIsShowing] = useState(false);
   const [modalType, setModalType] = useState(modalOptions.createChat);
   const [code, setCode] = useState('CODE TEST ON APP.JSX');
 
   return (
     <div className={styles.App}>
-      {/* <ModalContext.Provider value={{ setIsShowing }}></ModalContext.Provider> */}
-      <BrowserRouter>
-        <Routes>
-          <Route exact path={routes.login.path} element={<Login />} />
-          <Route exact path={routes.signIn.path} element={<CreateAccount />} />
-          <Route element={<ProtectedRoute />}>
-            <Route exact path={routes.home.path} element={<Home />} />
-            <Route exact path={routes.profile.path} element={<Profile />} />
+      <ModalContext.Provider value={{ setIsShowing }}>
+        <BrowserRouter>
+          <Routes>
+            <Route exact path={routes.login.path} element={<Login />} />
+            <Route
+              exact
+              path={routes.signIn.path}
+              element={<CreateAccount />}
+            />
+            <Route element={<ProtectedRoute />}>
+              <Route exact path={routes.home.path} element={<Home />} />
+              <Route exact path={routes.profile.path} element={<Profile />} />
 
-            <Route exact path={routes.chats.path} element={<Chats />} />
-            <Route exact path={routes.boards.path} element={<Boards />} />
-          </Route>
+              <Route exact path={routes.chats.path} element={<Chats />} />
+              <Route exact path={routes.boards.path} element={<Boards />} />
+            </Route>
 
-          <Route path='*' element={<p>There's nothing here: 404!</p>} />
-        </Routes>
-      </BrowserRouter>
+            <Route path='*' element={<p>There's nothing here: 404!</p>} />
+          </Routes>
+        </BrowserRouter>
 
-      <Modal
-        isShowing={isShowing}
-        type={modalType}
-        code={code}
-        setModalType={setModalType}
-        setIsShowing={setIsShowing}
-      />
-      {/* </ModalContext.Provider> */}
+        <Modal
+          isShowing={isShowing}
+          type={modalType}
+          code={code}
+          setModalType={setModalType}
+          setIsShowing={setIsShowing}
+        />
+      </ModalContext.Provider>
     </div>
   );
 }
