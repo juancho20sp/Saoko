@@ -16,7 +16,7 @@ import { ModalContext } from './utils';
 
 function App() {
   // Modal
-  const [isShowing, setIsShowing] = useState(false);
+  const [isShowing, setIsShowing] = useState(true);
   const [modalType, setModalType] = useState(modalOptions.createChat);
   const [code, setCode] = useState('CODE TEST ON APP.JSX');
 

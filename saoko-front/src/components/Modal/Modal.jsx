@@ -4,23 +4,8 @@ import styles from './Modal.module.scss';
 // Constants
 import { modalOptions, modalOptionTypes } from '../../utils/modal/modal';
 
-/**
- *
- * @param {String} The title of the button
- * @param {Function} The function to be excuted when the button is clicked, setted by parent
- * @returns
- */
-const Button = ({ title, handleClick }) => {
-  return <button onClick={handleClick}>{title}</button>;
-};
-
-const RoomCode = () => {
-  return <p>A2R7FG9</p>;
-};
-
-const Input = () => {
-  return <input type='text' placeholder='A2R7FG9' />;
-};
+// Components
+import { Button, RoomCode, Input } from './components';
 
 const useModalType = (type, setModalType, setIsShowing) => {
   const handleCloseModal = () => {
@@ -63,7 +48,7 @@ const useModalType = (type, setModalType, setIsShowing) => {
       return [
         modalOptions.enterChat.title,
         <Input />,
-        <div>
+        <div className={styles['modal-row_inputActions']}>
           <Button
             title={modalOptions.enterChat.secondRow.firstOption.title}
             handleClick={handleCloseModal}
@@ -97,11 +82,19 @@ const Modal = ({ isShowing, type, code, setModalType, setIsShowing }) => {
   }
 
   return (
-    <div className={styles['modal-overlay']}>
-      <div className={styles['modal-main']}>
-        <h2 className={styles['modal-title']}>{title}</h2>
-        <div className={styles['modal-row']}>{firstRow}</div>
-        <div className={styles['modal-row']}>{secondRow}</div>
+    <div
+      className={styles['modal-overlay']}
+      onClick={() => setIsShowing((isShowing) => !isShowing)}
+    >
+      <div
+        className={styles['modal-main']}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className={styles['modal-container']}>
+          <h2 className={styles['modal-title']}>{title}</h2>
+          <div className={styles['modal-row']}>{firstRow}</div>
+          <div className={styles['modal-row']}>{secondRow}</div>
+        </div>
       </div>
     </div>
   );
