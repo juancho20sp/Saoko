@@ -1,0 +1,21 @@
+.addRoom-main {
+    position: absolute;
+    top: 90%;
+    left: 85%;
+
+    background-color: $pink-primary;
+    border-radius: 50%;
+
+    width: 5rem;
+    height: 5rem;
+    
+    display: grid;
+    place-items: center;
+
+    // outline: 2px solid $black;
+    box-shadow: 5px 5px 5px $dark-gray;
+
+    &:hover {
+        cursor: pointer;
+    }
+}

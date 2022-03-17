@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Components
-import { Layout, RoomCard } from '../../components';
+import { Layout, RoomCard, AddRoom } from '../../components';
 
 import styles from './Chats.module.scss';
 
@@ -105,6 +105,7 @@ const Chats = () => {
         {cards.map((card) => (
           <RoomCard key={card.id} {...card} />
         ))}
+        <AddRoom />
       </main>
     </Layout>
   );
