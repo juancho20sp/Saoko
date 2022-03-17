@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ModalContext } from '../../App';
 
 // Components
 import { Layout, RoomCard, AddRoom } from '../../components';
@@ -98,18 +99,21 @@ const cards = [
   },
 ];
 
-const addRoomClick = () => {
+const addRoomClick = (setIsShowing) => {
   console.log('Adding room...');
+  setIsShowing((isShowing) => !isShowing);
 };
 
 const Chats = () => {
+  const { setIsShowing } = useContext(ModalContext);
+
   return (
     <Layout>
       <main className={styles['chats-container']}>
         {cards.map((card) => (
           <RoomCard key={card.id} {...card} />
         ))}
-        <AddRoom handleClick={addRoomClick} />
+        <AddRoom handleClick={() => addRoomClick(setIsShowing)} />
       </main>
     </Layout>
   );

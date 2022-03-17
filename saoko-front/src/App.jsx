@@ -14,6 +14,9 @@ import { routes } from './utils/routes/routes';
 // Views
 import { Login, Home, CreateAccount, Chats, Boards, Profile } from './views';
 
+// Context
+export const ModalContext = React.createContext();
+
 function App() {
   // Modal
   const [isShowing, setIsShowing] = useState(true);
@@ -22,13 +25,15 @@ function App() {
 
   return (
     <div className={styles.App}>
+      {/* <ModalContext.Provider value={{ setIsShowing }}></ModalContext.Provider> */}
       <BrowserRouter>
         <Routes>
           <Route exact path={routes.login.path} element={<Login />} />
           <Route exact path={routes.signIn.path} element={<CreateAccount />} />
           <Route element={<ProtectedRoute />}>
-            <Route exact path={routes.profile.path} element={<Profile />} />
             <Route exact path={routes.home.path} element={<Home />} />
+            <Route exact path={routes.profile.path} element={<Profile />} />
+
             <Route exact path={routes.chats.path} element={<Chats />} />
             <Route exact path={routes.boards.path} element={<Boards />} />
           </Route>
@@ -44,6 +49,7 @@ function App() {
         setModalType={setModalType}
         setIsShowing={setIsShowing}
       />
+      {/* </ModalContext.Provider> */}
     </div>
   );
 }
